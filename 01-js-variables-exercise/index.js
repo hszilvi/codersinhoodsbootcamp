@@ -6,7 +6,7 @@
  * {userName} can't be reassigned
  *
  */
-
+const userName = "Szilvia";
 /**
  * Exercise 2
  *
@@ -15,3 +15,4 @@
  *
  * {age} can be reassigned
  */
+let age = 43;
