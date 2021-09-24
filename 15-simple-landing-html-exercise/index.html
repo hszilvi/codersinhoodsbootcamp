@@ -3,9 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>15 Excercise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
 </head>
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: #F2F2F2;
+    }
+    .wrapper {
+        display: block;
+        margin: 0 auto;
+        width: 1600px;    
+    }
+    header {
+        background: url(../15-simple-landing-html-exercise/images/wave-1817646_1920.png), black;
+        height: 770px;
+        width: 100%;
+        position: relative;
+        color: white; 
+    }
+    nav {
+        position: absolute;
+        right: 0;   
+        height: 75px; 
+        padding-top: 2rem;   
+        padding-right: 8rem;  
+    }
+    ul {
+        list-style: none;
+    }
+    li {
+        float: left;
+    }
+    a {
+        text-decoration: none;
+        position: relative;
+        color: white;
+        font-size: .8rem;
+        font-weight: 300;
+        padding-right: 2rem;
+    }
+    a:hover::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 30%;
+        padding-top: .7rem;
+        border-bottom: 1px solid #00FF9A;
+    }
+    .cta {
+        position: absolute;
+        left: 10rem;
+        bottom: 18rem;
+        font-size: 1.8rem;
+    }
+    .cta1 {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    .why {
+        background-color: white;
+    }
+    .whycard-wrap {
+        display: flex;
+        width: 1200px;
+        flex-wrap: wrap;
+        padding-top: 7rem;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;      
+    }
+    .card1, .card2 {
+        position: relative;
+        width: 1184px;
+        display: flex;
+        margin-bottom: 6rem;
+    }
+    .banner-image {
+        position: relative;
+    }
+    .banner-image > img {
+        width: 584px;
+        height: 630px;
+        filter: brightness(0.2); 
+    }
+    .banner-image > h2 {
+        position: absolute;
+        font-size: 7rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+    .card1 > .textbox > h3 {
+        color: #FF4826;
+    }
+    .card2 > .banner-image > h2 {
+        color: #00FF9A;
+    }
+    .card2 > .textbox > h3 {
+        color: #83A715;
+    }
+    .textbox {
+        width: 584px;
+        padding: 3rem 0 0 5rem;
+    }
+    .textbox > h3 {
+        font-size: 2.8rem;
+    }
+    .textbox > p {
+        padding-top: 3rem;
+        line-height: 1.8rem;
+        font-size: 1.35rem;
+    }
+    .card2 > .textbox {
+        padding: 3rem 5rem 0 0;
+    }
+    .way {
+        width: 1600px;
+    }
+    .ways-wrap {
+        margin-top: 5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ways-wrap > .waytext > h2, .coding-wrapp h2 {
+        font-size: 2.6rem;
+        text-align: center;
+        color: #2B2B2B;
+    }
+    .ways-wrap > .waytext > p, .coding-wrapp p {
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: center;
+        padding-top: 1.5rem;
+        color: #5D5D5D;
+        padding-bottom: 1.8rem;
+    }
+    .waycards {
+        width: 1072px;
+        display: flex;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .waycard1, .waycard2, .waycard3 {
+        background-color: white;
+        margin: 1rem;
+        width: 330px;
+        height: 460px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /*position: relative;*/
+    }
+    .waybanner {
+        padding-top: .9rem;
+    }
+    .waycards h3 {
+        font-size: 1.3rem;
+        padding: 1.5rem 1rem 0 1rem;
+        color: #2B2B2B;
+        font-weight: 700;
+    }
+    .waycards p {
+        font-size: 1.2rem;
+        color: #3F3F3F;
+        line-height: 1.8rem;
+        padding: 1rem 1rem 0 1rem;
+    }
+    .coding {
+        width: 1600px;
+        height: 986px;
+        background-color: white;
+    }
+    .codetext {
+        padding-top: 6rem;
+        margin-top: 5rem;
+    }  
+   .gallerybox {
+       width: 1200px;
+       height: 562px;
+       margin-left: auto;
+       margin-right: auto;
+   }
+   .gallery { 
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       grid-template-rows: repeat(2, 1fr);
+       grid-gap: 1.5rem;
+   }
+   .img1 {
+       grid-area: 1 / 1 / 3 / 2;
+   }
+   .img2 {
+      grid-area: 1 / 2 / 2 / 3;
+   } 
+   .img3 {
+    grid-area: 1 / 3 / 2 / 4;
+   }
+   .img4 {
+    grid-area: 2 / 2 / 3 / 3;
+   }
+   .img5 {
+    grid-area: 2 / 3 / 3 / 4;
+   }
+   .gallery .photo {
+       position: relative;
+   }
+   .hovertext {
+       opacity: 0;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       text-align: center;
+       color: white;
+       font-size: 2.5rem;
+       font-weight: 700;
+   }
+   .photo:hover img {
+       filter: brightness(50%);
+   }
+   .photo:hover .hovertext {
+       opacity: 1;
+   }
+   footer {
+        background-color: #000000;
+        width: 1600px;
+        height: 347px;
+        color: white;
+        display: flex;
+    }
+    .contact {
+        width: 50%;
+        padding: 4rem 6rem 0 5rem;
+    }
+    .footertext {
+        font-size: 1.2rem;
+        width: 50%;
+        line-height: 1.9rem;
+        padding-top: 4rem;
+        padding-right: 11rem;
+   }
+   .footertext p {
+       padding-bottom: 1rem;
+   }
+   .logos {
+       padding-top: 3rem;
+   }
+   .logos a {
+       padding-right: 1rem;
+   }
+  
+
+</style>
 <body>
+    <div class="wrapper">
+        
+        <header>
+            <nav>
+                <ul>
+                    <li><a href>HOME</a></li>
+                    <li><a href>HTML5/CSS3</a></li>
+                    <li><a href>HELP</a></li>
+                    <li><a href>ABOUT US</a></li>
+                    <li><a href>CONTACT US</a></li>
+                </ul>
+            </nav>
+            <section class="cta">
+                <h1><span class="cta1">Learn how to code HTML and CSS</span><br>Coding - HTML and CSS</h1>
+            </section>
+        </header>
+        <section class="why">
+            <div class="whycard-wrap">
+                <div class="card1">
+                    <div class="banner-image">
+                        <img src="../15-simple-landing-html-exercise/images/codes-coding-css-1921326.png" alt="">
+                        <h2>HTML5</h2>
+                    </div>
+
+                    <div class="textbox">
+                        <h3>Why Learn HTML?</h3>
+                        <p>HTML is the foundation of all web pages. Without HTML, you wouldn’t be able to organize text or add images or videos to your web pages. HTML is the beginning of everything you need to know to create engaging web pages!</p>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="textbox">
+                        <h3>Why Learn CSS?</h3>
+                        <p>Without CSS, every web page would be drab plain text and images that flowed straight down the page. With CSS, you can add color and background images and change the layout of your page — your web pages can feel like works of art!</p>
+                    </div>
+                    <div class="banner-image">
+                        <img src="../15-simple-landing-html-exercise/images/codes-coding-css-1921326.png" alt="">
+                        <h2>CSS3</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="way">
+            <div class="ways-wrap">
+                <div class="waytext">
+                    <h2>The Easiest Way to Learn HTML5</h2>
+                    <p>You will learn many aspects of styling web pages!</p>
+                </div>
+                <div class="waycards">
+                    <div class="waycard1">
+                        <div class="waybanner">
+                            <img src="../15-simple-landing-html-exercise/images/adult-code-coding-1181359.png" alt="">
+                        </div>
+                        <div class="waytextbox">
+                            <h3>Introduction to HTML</h3>
+                            <p>In this course, you will learn how to style individual.</p>
+                        </div>
+                    </div>
+                    <div class="waycard2">
+                        <div class="waybanner">
+                            <img src="../15-simple-landing-html-exercise/images/code-3637299_1920.png" alt="">
+                        </div>
+                        <div class="waytextbox">
+                            <h3>HTML tags</h3>
+                            <p>In this course, you will learn how to style individual.</p>
+                        </div>
+                    </div>
+                    <div class="waycard3">
+                        <div class="waybanner">
+                            <img src="../15-simple-landing-html-exercise/images/access-code-connection-1181467.png" alt="">
+                            
+                        </div>
+                        <div class="waytextbox">
+                            <h3>HTML fields</h3>
+                            <p>In this course, you will learn how to style individual.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="coding">
+            <div class="coding-wrapp">
+                <div class="codetext">
+                    <h2>Coding – HTML and CSS</h2>
+                    <p>You will learn many aspects of styling web pages!</p>
+                    <div class="gallerybox">
+                        <div class="gallery">
+                            <div class="photo img1">
+                                <img src="../15-simple-landing-html-exercise/images/minion-2201004_1920.png" alt="">
+                                <div class="hovertext">Minon</div>
+                            </div>
+                            <div class="photo img2">
+                                <img src="../15-simple-landing-html-exercise/images/dog-2583924_1920.png" alt="">
+                                <div class="hovertext">Doge</div>
+                            </div>
+                            <div class="photo img3">
+                                <img src="../15-simple-landing-html-exercise/images/adorable-animal-bed-374898.png" alt="">
+                                <div class="hovertext">Yoda</div>
+                            </div>
+                            <div class="photo img4">
+                                <img src="../15-simple-landing-html-exercise/images/adorable-animal-cat-2194261.png" alt="">
+                                <div class="hovertext">Kitty</div>
+                            </div>
+                            <div class="photo img5">
+                                <img src="../15-simple-landing-html-exercise/images/bulldog-close-up-coffee-688961.png" alt="">
+                                <div class="hovertext">Bulldog</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <footer>
+            <div class="contact">
+                <h3>Contact us</h3>
+                <div class="logos">
+                    <a href=""><img src="../15-simple-landing-html-exercise/images/facebook-logo-in-circular-button-outlined-social-symbol.png" alt=""></a>
+                    <a href=""><img src="../15-simple-landing-html-exercise/images/twitter-circular-button.png" alt=""></a>
+                    <a href=""><img src="../15-simple-landing-html-exercise/images/google-plus-circular-button.png" alt=""></a>
+                </div>
+            </div>
+            <div class="footertext">
+                <p>What if a storm hits Hilton Head Island before you get ready to go on vacation? The answer is simple… stay home!</p>
+                <p>People are wanting to fly to international destinations for vacations but planning a holiday getaway can easily.</p>
+            </div>
+
+        </footer>
+    </div>
     <p></p>
 </body>
 </html>
