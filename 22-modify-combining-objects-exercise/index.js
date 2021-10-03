@@ -3,14 +3,20 @@
  *
  * Create an object {user} and add properties "firstName" and "lastName".
  */
-
+let user = {
+    firstName : 'James',
+    lastName : 'Bond'
+};
 /**
  * Exercise 2
  *
  * Create an object {userRead} and add properties "books" and "newspapers".
  * Both should be arrays with strings.
  */
-
+let userRead = {
+    books : ['The World Acording to Garp', 'Gold Goes To Heaven'],
+    newspapers : ['HVG', 'Magyar Narancs']
+};
 /**
  * Exercise 3
  *
@@ -26,14 +32,20 @@
  *   newspapers: []
  * }
  */
-
+user = {
+    ...user,
+    ...userRead
+};
 /**
  * Exercise 4
  *
  * Create an object {userWatch} and add properties "tvShows" and "movies".
  * Both should be arrays with strings.
  */
-
+let userWatch = {
+    tvShows : ['News', 'Comedy'],
+    movies : ['Marvel', 'Life of Brian']
+};
 /**
  * Exercise 5
  *
@@ -54,3 +66,7 @@
  *   }
  * }
  */
+user = {
+    ...user,
+    userWatch
+};
