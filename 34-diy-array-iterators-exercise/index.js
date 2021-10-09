@@ -16,6 +16,12 @@
  *
  */
 
+const forEach = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        callback(array[i], i);
+    }
+};
+
 /**
  * Exercise #2
  *
@@ -29,7 +35,13 @@
  * time the callback was invoked.
  *
  */
-
+const map = (array, callback) => {
+    retVal = [];
+    for (let i = 0; i < array.length; i++) {
+        retVal.push(callback(array[i], i));
+    }
+    return retVal;
+};
 /**
  * Exercise #3
  *
@@ -43,7 +55,15 @@
  * callback returned a truthy value.
  *
  */
-
+const filter = (array, callback) => {
+    retVal = [];
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i)) {
+            retVal.push(array[i]);
+        }
+    }
+    return retVal;
+};
 /**
  * Exercise #4
  *
@@ -57,7 +77,13 @@
  * truthy value.
  *
  */
-
+const find = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i)) {
+           return (array[i]);
+        }
+    }
+};
 /**
  * Exercise #5
  *
@@ -71,7 +97,13 @@
  * callback returns a truthy value.
  *
  */
-
+const findIndex =(array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i)) {
+                return i;
+        }
+    }
+};
 /**
  * Exercise #6
  *
@@ -86,6 +118,28 @@
  * a truthy value.
  *
  */
+//what you actually need is to have a counter and increment it everytime your callback
+// return you true and then compare counter and array length  to return true or false,
+// const every = (array, callback) => {
+//     let retval = true;
+//     for (let i = 0; i < array.length; i++) {
+//         if (callback(array[i], i)) {} else { retval = false; }
+//     }
+//     return retval;
+// }
+
+
+
+
+const every = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        if (!callback(array[i], i)) {
+            return false;            
+        }
+    }
+    return true;
+}
+
 
 /**
  * Exercise #7
@@ -101,7 +155,14 @@
  * a truthy value.
  *
  */
-
+const some = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        if (callback(array[i], i)) {
+            return true;
+        }
+    }
+    return false;
+};
 /**
  * Exercise #8
  *
@@ -123,3 +184,10 @@
  * value.
  *
  */
+const reduce = (array, callback, initialValue = 0) => {
+    let sum = initialValue;
+    for (let i = 0; i < array.length; i++) {
+        sum = callback(sum, array[i], i);
+    }
+    return sum;
+};

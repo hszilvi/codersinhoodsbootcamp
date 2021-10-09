@@ -37,6 +37,32 @@ const dataTypes = [
  *  floats: [3.12]
  * }
  */
+ const sortedData = (data) => {
+  let strings = [];
+  let objects = [];
+  let integers = [];
+  let booleans = [];
+  let floats = [];
+  let arrays = [];
+  for (let prop of data) {
+    if (typeof prop === 'string') {
+      strings.push(prop);
+    } else if (typeof prop === 'number') {
+      if (prop % 1 === 0) {
+        integers.push(prop);  
+      } else {
+        floats.push(prop);
+      }    
+    } else if (typeof prop === 'boolean') {
+      booleans.push(prop);
+    } else if (Array.isArray(prop)) {
+      arrays.push(prop);
+    } else if (typeof prop === 'object') {
+      objects.push(prop);
+    }
+  }
+  return {floats, strings, arrays, objects, integers, booleans};
+};
 
 /**
  * Exercise 2
@@ -49,7 +75,17 @@ const dataTypes = [
  * Ex: pass [3,2,6]
  * result: [6, 12, 6]
  */
-
+const multipliedByNextNumber = (arr) => {
+    if (arr.length < 2) {
+      return arr
+    }
+    let newArr = [];    
+    for (i = 1; i < arr.length; i++) {
+      newArr.push(arr[i-1] * arr[i])
+    }
+    newArr.push(arr[arr.length - 1])
+    return newArr;
+};
 /**
  * Exercise 3
  *
@@ -62,7 +98,27 @@ const dataTypes = [
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [24, 3, 48, 16, 5, 7]
  */
-
+const multipliedEvenNumbers = (arr2) => {
+let retval = [];
+for (let i = 0; i < arr2.length; i++) {
+  if (arr2[i] % 2 == 0) {
+    let idx_next_even = 0;
+    for (let j = i + 1; idx_next_even === 0 && j < arr2.length; j++) {
+      if (arr2[j] % 2 == 0) {
+        idx_next_even = j;
+      }
+    }
+    if (0 < idx_next_even) {
+      retval.push(arr2[i] * arr2[idx_next_even]);
+    } else {
+      retval.push(arr2[i] * 2);
+    }
+  } else {
+    retval.push(arr2[i]);
+  }
+}
+return retval;
+};
 /**
  * Exercise 4
  *
@@ -75,7 +131,27 @@ const dataTypes = [
  * ex: multipliedEvenNumbers([4,3,6,8,5,7])
  * result: [4, 15, 6, 8, 35, 7]
  */
-
+ const multipliedOddNumbers = (arr3) => {
+  let retval = [];
+  for (let i = 0; i < arr3.length; i++) {
+    if (arr3[i] % 2 == 1) {
+      let idx_next_odd = 0;
+      for (let j = i + 1; idx_next_odd === 0 && j < arr3.length; j++) {
+        if (arr3[j] % 2 == 1) {
+          idx_next_odd = j;
+        }
+      }
+      if (0 < idx_next_odd) {
+        retval.push(arr3[i] * arr3[idx_next_odd]);
+      } else {
+        retval.push(arr3[i] * 1);
+      }
+    } else {
+      retval.push(arr3[i]);
+    }
+  }
+  return retval;
+  };
 /**
  * Exercise 5
  *
@@ -86,3 +162,12 @@ const dataTypes = [
  * if you pass "odd" do the same what you have for exercise 4
  * else return original array.
  */
+const multipliedEvenOddNumbers = (arr5, type) => {
+  if (type === 'odd') {
+    return multipliedOddNumbers(arr5);
+  } else if (type === 'even') {
+    return multipliedEvenNumbers(arr5);
+  } else {
+    return arr5;
+  }
+}

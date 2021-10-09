@@ -6,7 +6,9 @@
  * param it should use default value for name which 
  * should be 'incognito'
  */
-
+const sayHi = (name = 'incognito') => {
+    return `Hi, ${name}!`;
+}; 
 /**
  * Exercise 2
  * 
@@ -16,7 +18,9 @@
  * It you don't pass 1 or both params it should use 1 as 
  * a default value/values
  */
-
+const multiply = (num1 = 1, num2 = 1) => {
+    return num1 * num2;
+};
 /**
  * Exercise 3
  * create a function {logElements} that takes array as a param
@@ -24,7 +28,11 @@
  * pass any array, default value of your param should be 
  * array that contains only one element - string with value "Nothing to log"
  */
-
+const logElements = (arr = ['Nothing to log']) => {
+    for (i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+};
 /**
  * Exercise 4
  * create a function {getUserName} that takes object with property
@@ -32,3 +40,15 @@
  * Default value of the param should be object with property name,
  * and value "John Smith"
  */
+
+const getUserName = (obj) => {
+    if (typeof obj === 'undefined') {
+        return 'John Smith';
+    } else if ('name' in obj) {
+        return obj.name;
+    } else {
+        return 'John Smith';
+    }
+};
+
+

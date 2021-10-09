@@ -1,4 +1,5 @@
 // install and  import "readline-sync" npm package before you do exercises
+const readlineSync = require('readline-sync');
 
 let selectedItems = {
 	book: "",
@@ -45,6 +46,12 @@ const countries = [
  *
  * NOTE: You need to add option to go back, to main menu
  */
+function menuBooks() {
+	const indexBooks = readlineSync.keyInSelect(books, 'Which book? ');
+	if (indexBooks < books.length) {
+		selectedItems["book"] = books[indexBooks];
+	}
+};
 
 /**
  * Exercise 2
@@ -55,7 +62,12 @@ const countries = [
  *
  * NOTE: You need to add option to "go back", to main menu
  */
-
+function menuMovies() {
+	const indexMovies = readlineSync.keyInSelect(movies, 'Which movie? ');
+	if (indexMovies <= movies.length) {
+		selectedItems['movie'] = movies[indexMovies];
+	}
+};
 /**
  * Exercise 3
  *
@@ -65,6 +77,12 @@ const countries = [
  *
  * NOTE: You need to add option to go back, to main menu
  */
+function nextDestination() {
+	const indexCountries = readlineSync.keyInSelect(countries, 'Which country? ');
+	if (indexCountries <= countries.length) {
+		return selectedItems['nextTrip'] = countries[indexCountries];
+	}
+};
 
 /**
  * Exercise 4
@@ -73,3 +91,19 @@ const countries = [
  * so user can pick one. User also should have the option "Exit".
  * When the user pick "Exit", log selected items.
  */
+function mainMenu() {
+	let index = 0;
+	while (0 <= index) {
+		const categories = ["Books", "Movies", "Next destination"];
+		index = readlineSync.keyInSelect(categories, 'Which category? ');
+		if (index == 0) {
+			menuBooks();
+		} else if (index == 1) {
+			menuMovies();
+		} else if (index == 2) {
+			nextDestination();
+		}
+	}
+};
+mainMenu();
+console.log(selectedItems);
