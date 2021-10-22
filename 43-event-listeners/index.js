@@ -8,14 +8,24 @@
  * on a button inside div with class "click", and
  * logs a message in the console when a click occurs
  */
-
+const clickTheButton = () => {
+    const button = document.querySelector('.click button');
+    button.addEventListener('click', () => {
+        console.log('Clicked button');
+    });
+};
 /**
  * Exercise 2
  *
  * create a function {hoverOver} which listens for a hover over an
  * "a" tag inside div with class "mouseover" and logs a message in the console
  */
-
+const hoverOver = () => {
+    const mOver = document.querySelector('.mouseover a');
+    mOver.addEventListener('mouseover', () => {
+        console.log('Mouse is over');
+    });
+};
 /**
  * Exercise 3
  *
@@ -23,14 +33,24 @@
  * cursor leaves the "a" tag inside div with class "mouseover"
  * and log a message in the console
  */
-
+const handleLeave = () => {
+    const cLeaves = document.querySelector('.mouseover a');
+    cLeaves.addEventListener('mouseout', () => {
+        console.log('The mouse left this text');
+    });
+};
 /**
  * Exercise 4
  *
  * create a function {focusOnMe} which will log a message in the console
  * when you focus on input which is inside 'div' with class 'input'
  */
-
+const focusOnMe = () => {
+    const focusOn = document.querySelector('.input input');
+    focusOn.addEventListener('focus', () => {
+        console.log('You are focusing!');
+    });
+};
 /**
  * Exercise 5
  *
@@ -38,7 +58,12 @@
  * when first you focus on input which is inside 'div' with class 'input'
  * and then click on anything else
  */
-
+const clickElsewhere = () => {
+    const clickAway = document.querySelector('.input input');
+    clickAway.addEventListener('blur' ,() => {
+        console.log('clicked elsewhere');
+    });
+};
 /**
  * Exercise 6
  *
@@ -46,7 +71,12 @@
  * when you focus on input which is inside 'div' with class 'input'
  * and then press any key
  */
-
+const pressAKey = () => {
+    const focusInput = document.querySelector('.input input');
+    focusInput.addEventListener('keydown', () => {
+        console.log('press any key');
+    });
+};
 /**
  * Exercise 7
  *
@@ -54,7 +84,12 @@
  * when you focus on input which is inside 'div' with class 'input'
  * and then press any key and release it
  */
-
+const releaseAKey = () => {
+    const pressAndRelease = document.querySelector('.input input');
+    pressAndRelease.addEventListener('keyup', () => {
+        console.log('Do whatever you want');
+    });
+};
 /**
  * Exercise 8
  *
@@ -62,14 +97,24 @@
  * to uppercase when you focus on input which is inside 'div' with class 'input'
  * and then press any key and release it
  */
-
+const inputToUpperCase = () => {
+    const toUpper = document.querySelector('.input input');
+    toUpper.addEventListener('keyup', () => {
+        toUpper.value = toUpper.value.toUpperCase();
+    });
+};
 /**
  * Exercise 9
  *
  * create a function {handleSelectChange} which will log selected option value
  * in console when you select an option in "select" with id "items"
  */
-
+const handleSelectChange = () => {
+    const optVal = document.querySelector('.select #item');
+    optVal.addEventListener('change', () => {
+        console.log(optVal.value);
+    });
+};
 /**
  * Exercise 10
  *
@@ -77,6 +122,22 @@
  * on submit, build an object where property names will be input names,
  * and values, input values and log it in the console
  */
+const submitFormHandler = () => {
+    const form = document.querySelector('form');
+    const formInput = {};
+    const firstName = document.querySelector('form').elements['firstName'];
+    const lastName = document.querySelector('form').elements['lastName'];
+    formInput.addEventListener('submit', () => {
+        firstName = firstName.value;
+        lastName = lastName.value;
+        user = {
+            firstName: first.value,
+            lastName: last.value
+        }
+        console.log(user);
+
+    });
+};
 
 /**
  * Exercise 11
@@ -84,3 +145,8 @@
  * create a function {handleScroll} which will get window vertical scroll position
  * on scroll, and log it in the console
  */
+const handleScroll = () => {
+    window.addEventListener('scroll', () => {
+        console.log(scrollY);
+    });
+};

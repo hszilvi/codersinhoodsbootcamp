@@ -55,3 +55,23 @@ let players = {
  *  </div>
  * </li>
  */
+const playerList = players.pool;
+const team1 = players.team1;
+const team2 = players.team2;
+const poolColumn = document.querySelector('.column .pool');
+
+
+const createPlayerEl = (players) => {
+  const li = document.createElement('li');
+  li.innerHTML += `Name: ${players.pool}`;
+  return li;
+};
+
+const buildPlayerList = () => {
+  const ul = document.querySelector('.column.pool');
+  players.forEach((player) => {
+    ul.appendChild(createPlayerEl(player));
+    
+  });
+  document.querySelector('body').appendChild(ul);
+}
