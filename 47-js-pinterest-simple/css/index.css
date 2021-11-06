@@ -1,0 +1,115 @@
+* {
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    margin: 5rem auto;
+    padding: 0;
+    width: 800px;
+}
+.img_wrapper {
+    border-radius: .8rem;
+    overflow: hidden;
+}
+.kitty_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+h1 {
+    color: #cc3300;
+    text-align: center;
+    display: none;
+}
+p {
+    font-style: italic;
+    font-weight: bold;
+    font-size: .7rem;
+}
+.comment_appears {
+    display: none;
+}
+#comment_area {
+    border: .1rem solid #C4C4C4;
+    border-radius: .8rem;
+    width: 740px;
+    height: 100px;
+    color: #C4C4C4;
+    font-size: .9rem;
+    display: block;
+    margin: 2rem auto 1rem auto;
+    padding: .8rem 0 0 .8rem;
+}
+.buttons {
+    display: block;
+    float: right;
+    margin-right: 2rem;
+    
+}
+.cancel {
+    color: #2E3A59;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 146px;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.submit {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 146px;
+    height: 35px;
+    background-color: #2E3A59;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+    padding: .2rem 2.5rem;
+}
+.like_wrapper {
+    margin: 1rem auto 2rem auto;
+    position: relative;
+    
+    width: 740px;
+    height: 36px;
+}
+.like_wrapper>img {
+    cursor: pointer;
+    width: 36px;
+    margin-left: 1rem;
+    position: absolute;
+}
+.comment_btn {
+    right: 0;
+}
+.liked_btn, .like_btn {
+    right: 50px;
+}
+.liked_btn {
+    display: none;
+}
+hr {
+    border-top: .15rem solid #2E3A59;
+    margin-bottom: 1rem;
+}
+li>hr {
+    border-top: .1rem solid #C2C2C2;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+ul {
+    margin-top: 5rem;
+    list-style-type: none;
+}
+h3 {
+    font-size: .8rem;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: .5rem;
+}

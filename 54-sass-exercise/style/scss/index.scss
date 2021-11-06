@@ -1,0 +1,32 @@
+@import './theme.scss';
+@import './functions.scss';
+@import './mixins.scss';
+
+
+
+// 7. Create some markup to test all your created styles.
+// 8. create a function which takes argument(`small`, `medium`, `large`) and return font size `14px`, `18px` and `24px` respectfully.
+.main {
+    background-color: $color-primary;
+    h2 {
+        color: $color-secondary;
+        @include setFont(large);
+    }
+    p {
+        @include setFont(large);
+    }
+    li {
+        font-size: $font-size-text;
+
+            &:nth-of-type(3) {
+                font-size: setEms(2);
+                &:hover {
+                    background-color: $color-secondary;
+                    color: white;
+                }
+            }
+            &:nth-of-type(1) {
+                @include basep;
+            }
+    }
+}

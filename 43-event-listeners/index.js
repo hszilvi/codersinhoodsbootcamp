@@ -9,10 +9,10 @@
  * logs a message in the console when a click occurs
  */
 const clickTheButton = () => {
-    const button = document.querySelector('.click button');
-    button.addEventListener('click', () => {
-        console.log('Clicked button');
-    });
+  const button = document.querySelector(".click button");
+  button.addEventListener("click", () => {
+    console.log("Clicked button");
+  });
 };
 /**
  * Exercise 2
@@ -21,10 +21,10 @@ const clickTheButton = () => {
  * "a" tag inside div with class "mouseover" and logs a message in the console
  */
 const hoverOver = () => {
-    const mOver = document.querySelector('.mouseover a');
-    mOver.addEventListener('mouseover', () => {
-        console.log('Mouse is over');
-    });
+  const mOver = document.querySelector(".mouseover a");
+  mOver.addEventListener("mouseover", () => {
+    console.log("Mouse is over");
+  });
 };
 /**
  * Exercise 3
@@ -34,10 +34,10 @@ const hoverOver = () => {
  * and log a message in the console
  */
 const handleLeave = () => {
-    const cLeaves = document.querySelector('.mouseover a');
-    cLeaves.addEventListener('mouseout', () => {
-        console.log('The mouse left this text');
-    });
+  const cLeaves = document.querySelector(".mouseover a");
+  cLeaves.addEventListener("mouseout", () => {
+    console.log("The mouse left this text");
+  });
 };
 /**
  * Exercise 4
@@ -46,10 +46,10 @@ const handleLeave = () => {
  * when you focus on input which is inside 'div' with class 'input'
  */
 const focusOnMe = () => {
-    const focusOn = document.querySelector('.input input');
-    focusOn.addEventListener('focus', () => {
-        console.log('You are focusing!');
-    });
+  const focusOn = document.querySelector(".input input");
+  focusOn.addEventListener("focus", () => {
+    console.log("You are focusing!");
+  });
 };
 /**
  * Exercise 5
@@ -59,10 +59,10 @@ const focusOnMe = () => {
  * and then click on anything else
  */
 const clickElsewhere = () => {
-    const clickAway = document.querySelector('.input input');
-    clickAway.addEventListener('blur' ,() => {
-        console.log('clicked elsewhere');
-    });
+  const clickAway = document.querySelector(".input input");
+  clickAway.addEventListener("blur", () => {
+    console.log("clicked elsewhere");
+  });
 };
 /**
  * Exercise 6
@@ -72,10 +72,10 @@ const clickElsewhere = () => {
  * and then press any key
  */
 const pressAKey = () => {
-    const focusInput = document.querySelector('.input input');
-    focusInput.addEventListener('keydown', () => {
-        console.log('press any key');
-    });
+  const focusInput = document.querySelector(".input input");
+  focusInput.addEventListener("keydown", () => {
+    console.log("press any key");
+  });
 };
 /**
  * Exercise 7
@@ -85,10 +85,10 @@ const pressAKey = () => {
  * and then press any key and release it
  */
 const releaseAKey = () => {
-    const pressAndRelease = document.querySelector('.input input');
-    pressAndRelease.addEventListener('keyup', () => {
-        console.log('Do whatever you want');
-    });
+  const pressAndRelease = document.querySelector(".input input");
+  pressAndRelease.addEventListener("keyup", () => {
+    console.log("Do whatever you want");
+  });
 };
 /**
  * Exercise 8
@@ -98,10 +98,10 @@ const releaseAKey = () => {
  * and then press any key and release it
  */
 const inputToUpperCase = () => {
-    const toUpper = document.querySelector('.input input');
-    toUpper.addEventListener('keyup', () => {
-        toUpper.value = toUpper.value.toUpperCase();
-    });
+  const toUpper = document.querySelector(".input input");
+  toUpper.addEventListener("keyup", () => {
+    toUpper.value = toUpper.value.toUpperCase();
+  });
 };
 /**
  * Exercise 9
@@ -110,10 +110,10 @@ const inputToUpperCase = () => {
  * in console when you select an option in "select" with id "items"
  */
 const handleSelectChange = () => {
-    const optVal = document.querySelector('.select #item');
-    optVal.addEventListener('change', () => {
-        console.log(optVal.value);
-    });
+  const optVal = document.querySelector("#items");
+  optVal.addEventListener("change", (event) => {
+    console.log(event.target.value);
+  });
 };
 /**
  * Exercise 10
@@ -122,21 +122,33 @@ const handleSelectChange = () => {
  * on submit, build an object where property names will be input names,
  * and values, input values and log it in the console
  */
-const submitFormHandler = () => {
-    const form = document.querySelector('form');
-    const formInput = {};
-    const firstName = document.querySelector('form').elements['firstName'];
-    const lastName = document.querySelector('form').elements['lastName'];
-    formInput.addEventListener('submit', () => {
-        firstName = firstName.value;
-        lastName = lastName.value;
-        user = {
-            firstName: first.value,
-            lastName: last.value
-        }
-        console.log(user);
+// const submitFormHandler = () => {
+//     const form = document.querySelector('form');
 
+//     const firstName = document.querySelector('form input[name="firstName"]');
+//     const lastName = document.querySelector('form input[name="lastName"]');
+//     form.addEventListener('submit', () => {
+
+//         const user = {
+//             firstName: firstName.value,
+//             lastName: lastName.value
+//         }
+//         console.log(user);
+
+//     });
+// };
+const submitFormHandler = () => {
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (event) => {
+    const inputs = event.target.querySelectorAll("input");
+    let user = {};
+    inputs.forEach((input) => {
+      const name = input.name;
+      const value = input.value;
+      user[name] = value;
     });
+    console.log(user);
+  });
 };
 
 /**
@@ -146,7 +158,7 @@ const submitFormHandler = () => {
  * on scroll, and log it in the console
  */
 const handleScroll = () => {
-    window.addEventListener('scroll', () => {
-        console.log(scrollY);
-    });
+  window.addEventListener("scroll", () => {
+    console.log(scrollY);
+  });
 };

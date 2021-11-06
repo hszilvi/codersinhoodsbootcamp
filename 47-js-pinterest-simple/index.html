@@ -4,19 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
-    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <title>Kitterest</title>
   </head>
   <body>
     <h1>Kitterest</h1>
     <div class="post">
       <div class="img_wrapper">
-        <img src="" alt="" />
+        <img class="kitty_img" src="../47-js-pinterest-simple/img/kitten.png" alt="" />
       </div>
-      <ul class="panel">
-        <li><img src="" alt="" /></li>
-        <li><img src="" alt="" /></li>
-        <li><img src="" alt="" /></li>
-      </ul>
+      <div class="like_wrapper">
+        
+        <img class="like_btn"  src="../47-js-pinterest-simple/img/like_empty.png" alt="" />
+        <img class="comment_btn"  src="../47-js-pinterest-simple/img/comment_empty.png" alt="" />
+
+      </div>
+      
+      
+    </div>
+
+    <hr />
+    
+    <div class="comments">
+      <p>Comments</p>
+      <!--If comment button is on-->
+      <div class="comment_appears">
+        <form action="">
+          <textarea id="comment_area" name="Comments" row="100" cols="100" placeholder="Type your comment..."></textarea>
+          <div class="buttons">
+            <button class="cancel">Cancel</button>
+            <button class="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+      <!--If comment button is off-->
+      <div class="comment_list">
+        <ul class="panel">
+          <li>
+            <h3>User3774623</h3>
+            <p>I'm baby copper mug quinoa fixie la croix whatever paleo edison bulb. Paleo four dollar toast blue bottle street art you probably haven't heard of them</p>
+            <hr />
+          </li>
+          <li>
+            <h3>User3774623</h3>
+            <p>I'm baby copper mug quinoa fixie la croix whatever paleo edison bulb. Paleo four dollar toast blue bottle street art you probably haven't heard of them</p>
+            <hr />
+          </li>
+          <li>
+            <h3>User3774623</h3>
+            <p>I'm baby copper mug quinoa fixie la croix whatever paleo edison bulb. Paleo four dollar toast blue bottle street art you probably haven't heard of them</p>
+            <hr />
+          </li>
+        </ul>
+              
+      </div>
+
+     
     </div>
   </body>
   <script src="index.js"></script>

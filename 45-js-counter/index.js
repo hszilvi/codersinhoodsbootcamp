@@ -75,13 +75,13 @@ decrementButton.addEventListener('click', () => {
  * NOTE: ".counter_value" should represent current state of counter
  */
 const autoDec = document.querySelector('#auto_decrement');
-let decreaser;
+let interval;
 autoDec.addEventListener('click', () => {
-    clearInterval(decreaser);
-    decreaser = setInterval(() => {
+    clearInterval(interval);
+    interval = setInterval(() => {
         action('-');
     }, 1000);
-    document.querySelector('.counter_value').innerText = decreaser;
+    document.querySelector('.counter_value').innerText = interval;
 });
 
 /**
@@ -92,14 +92,14 @@ autoDec.addEventListener('click', () => {
  *
  * NOTE: ".counter_value" should represent current state of counter
  */
-let increaser;
+
 const autoInc = document.querySelector('#auto_increment');
 autoInc.addEventListener('click', () => {
-    clearInterval(increaser);
-    increaser = setInterval(() => {
+    clearInterval(interval);
+    interval = setInterval(() => {
         action('+');
     }, 1000);
-    document.querySelector('.counter_value').innerText = increaser;
+    document.querySelector('.counter_value').innerText = interval;
 });
 /**
  * Exercise 7
@@ -109,6 +109,5 @@ autoInc.addEventListener('click', () => {
  */
 const stopBtn = document.querySelector('#stop_auto');
 stopBtn.addEventListener('click', () => {
-    clearInterval(increaser);
-    clearInterval(decreaser);
+    clearInterval(interval);
 });

@@ -1,8 +1,10 @@
 const addCounterEl = document.querySelector("#new_timer");
 const timersContainerEl = document.querySelector(".timers");
 
-// USE THIS VARIABLE TO COUNT TIMERS
+const body = document.querySelector("body");
 let timersCount = 0;
+
+// USE THIS VARIABLE TO COUNT TIMERS
 
 /**
  * Exercise 1
@@ -23,62 +25,50 @@ let timersCount = 0;
 //  5. When I click "X", the timer should stop and be removed from the DOM
 //  6. I should be able to add NO MORE than 5 timers.
 
-// function counter() {
-//     let retVal = 0;
-//     while (num <= 5) {
+const createTimerEl = (num) => {
+  let timerDiv = document.createElement("div");
+  timerDiv.classList.add("timer", `timer_${num}`);
+  timerDiv.innerHTML = `
+        <div class="remove"></div>
+        <h3>0 <span>00</span></h3>
+            <div class="btn">
+                <button class="reset">Reset</button>
+                <button class="stop">Stop</button>
+            </div>`;
+  // counter
+  let counter = 0;
+  const interval = setInterval(() => {
+    let timerText = timerDiv.querySelector("h3");
+    const sec = Math.floor(counter / 100);
+    const mSec = counter % 100;
+    timerText.innerHTML = `${sec}<span>${mSec}</span>`;
+    counter++; 
+  }, 10);
 
-//     }
-// }
-
-// const createTimerEl = (num) => {
-//     const timerDiv = document.createElement('div'); 
-//     timerDiv.classList.add('timer, timer_${num}');
-//     timerDiv.innerHTML = 
-//         `div class="remove"></div>
-// 				<h3>0 <span>00</span></h3>
-// 				<div class="btn">
-// 					<button class="reset">Reset</button>
-// 					<button class="stop">Stop</button>
-// 				</div>`
-//     ;
-//     console.log(timerDiv);
-
-// return num;
-// };
-
-// const addNewTimerButton = () => {
-//     const button = document.querySelector('#new_timer');
-//     button.addEventListener('click', (event) => {
-//         let counter = 0;
-//         let num = createTimerEl(num);
-//         const totalTimer = document.querySelector('.timer').length;
-//         while (totalTimer < 5) {
-//             counter++;
-//             createTimerEl();
-//         };
-//     });
-// };
-
-// const addNewTimer = () => {
-//     const addTimerButton = document.querySelector('#new_timer');
-//     addTimerButton.addEventListener('click', () => {
-//         alert('hello');
-//     } );
-
-// };
-
-const addTimerButton = document.querySelector('#new_timer');
-const body = document.querySelector('body');
-const timerDiv = document.getElementById('.timers');
-    // const divContent = `div class="remove"></div>
-    // <h3>0 <span>00</span></h3>
-    // <div class="btn">
-    //     <button class="reset">Reset</button>
-    //     <button class="stop">Stop</button>
-    // </div>`
-    
-addTimerButton.addEventListener('click', () => {
-    //timerDiv.innerHTML = divContent;
-    document.body.appendChild(timerDiv);
-    //return timerDiv;
+  // reset button
+  let resetBtn = timerDiv.querySelector(".reset");
+  resetBtn.addEventListener("click", () => {
+    counter = 0;
+  });
+  // stop button
+  let stopBtn = timerDiv.querySelector(".stop");
+  stopBtn.addEventListener("click", () => {
+    clearInterval(interval);
+  });
+  // add x button event
+  const removeBtn = timerDiv.querySelector(".remove");
+  removeBtn.addEventListener("click", () => {
+    timersCount--;
+    timerDiv.remove();
+  });
+  return timerDiv;
+};
+// new timers event, max 5 times
+addCounterEl.addEventListener("click", () => {
+  if (timersCount < 5) {
+    timersCount++;
+    console.log(timersCount);
+    let newTimer = createTimerEl(timersCount);
+    timersContainerEl.appendChild(newTimer);
+  }
 });
