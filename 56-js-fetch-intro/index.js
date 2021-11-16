@@ -31,3 +31,22 @@ const input = document.querySelector("input");
  * 5. When I focus on input, it should clear my input and hide
  * {result}
  */
+const getResponse = async (URL) => {
+    await fetch(URL).then((response) => {
+        if (response.ok) {
+            result.innerHTML = `Valid link! <a href=${URL} target='_blank'</a>`;
+            console.log(response);
+        } else {
+            result.innerHTML = `Request failed with status code: ${response.status}`;
+        }
+    });
+};
+input.addEventListener('focus', () => {
+    input.value = '';
+    result.innerHTML = ``;
+});
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    inputUrl = input.value;
+    getResponse(inputUrl);
+});

@@ -24,3 +24,4 @@ For example: `sass index.scss:index.css --watch`
 5. Create a scss file `mixins` and create a mixin `container` with some default stylings.
 7. Create some markup to test all your created styles.
 8. create a function which takes argument(`small`, `medium`, `large`) and return font size `14px`, `18px` and `24px` respectfully.
+
