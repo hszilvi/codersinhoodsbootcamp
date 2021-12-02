@@ -21,27 +21,44 @@ const createATagWithChildren = (tagName, className, id, children = []) => {
   return newEl;
 };
 
-const addElement = (el, destination) => {
-  const destEl = document.querySelector(destination);
+// const addElement = (el, destination) => {
+//   const destEl = document.querySelector(destination);
 
-  destEl && destEl.appendChild(el);
+//   destEl && destEl.appendChild(el);
+// };
+const addElement = (element, destination) => {
+  const destinationEl = document.querySelector(destination);
+  if (destinationEl) {
+      destinationEl.appendChild(element);
+  }
+
 };
+
 
 const getElement = (selector, isAll) => {
   if (isAll) {
     return document.querySelectorAll(selector);
   }
-
   return document.querySelector(selector);
 };
+const removeElement = (selector, all) => {
+  if (all) {
+      selectedEls = document.querySelectorAll(selector);
+      selectedEls.forEach(element => {
+          element.remove();
+      });
+      return selectedEls;
+  } else document.querySelector(selector).remove();
+}
 
-const removeElement = (selector, isAll) => {
-  if (isAll) {
-    return document.querySelectorAll(selector).forEach((el) => el.remove());
-  }
+// const removeElement = (selector, isAll) => {
+//   if (isAll) {
+//     return document.querySelectorAll(selector).forEach((el) => el.remove());
+//   }
 
-  document.querySelector(selector).remove();
-};
+//   document.querySelector(selector).remove();
+// };
+
 
 module.exports = {
   createATag,
