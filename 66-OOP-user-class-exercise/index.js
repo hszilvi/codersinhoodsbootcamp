@@ -31,3 +31,56 @@
  * 8. If user is dead, make sure that on any method call you are getting
  * "User is dead"
  */
+class User {
+    constructor(name, age, hunger) {
+        this.name = name;
+        this.age = age;
+        this.hunger = hunger;
+        this.foodEaten = [];
+    }
+    getName() {
+        return this.name;
+    }
+    getAge() {
+        return this.age;
+    }
+    getHunger() {
+        return this.hunger;
+    }
+    getFoodEaten() {
+        return this.foodEaten;
+    }
+    hungerStatus() {
+        if (this.hunger >= 0 && this.hunger <= 20) {
+            return 'Famished';
+        }
+        if (this.hunger >= 21 && this.hunger <= 40) {
+            return 'Starving';
+        }
+        if (this.hunger >= 41 && this.hunger <= 60) {
+            return 'Hungry';
+        }
+        if (this.hunger >= 61 && this.hunger <= 80) {
+            return 'Content';
+        }
+        if (this.hunger >= 81 && this.hunger <= 100) {
+            return 'Full'
+        };
+        // switch(true) {
+        //     case this.hunger >= 0 && this.hunger <= 20:
+        //         return 'Famished';
+        //         break;
+        //     case this.hunger >= 21 && this.hunger <= 40:
+        //         return 'Starving';
+        //         break;
+        //     case this.hunger >= 41 && this.hunger <= 60:
+        //         return 'Hungry';
+        //         break;
+        //     case this.hunger >= 61 && this.hunger <= 80:
+        //         return 'Content';
+        //         break;
+        //     case this.hunger >= 81 && this.hunger <= 100:
+        //         return 'Full';
+        // }
+    }
+}

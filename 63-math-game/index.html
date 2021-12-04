@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math game</title>
+</head>
+<style>
+   
+    .questions, .pointsCounter {
+        display: none;
+    }
+</style>
+<body>
+    <h1>MATH GAME</h1>
+    <hr>
+
+    <div class = "chooseHowMany">
+        <label for="howManyMathOp">Choose how many questions would you like! </label>
+        <select name="howManyMathOp" id = "amountOfEx">
+            <option value=""></option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <!-- <h2>Please choose how many questions would you like!</h2>
+        <input type = "checkbox" id = "checkbox1" name = "tenQ" value = "10"><label for="tenQ"> 10</label><br>
+        <input type = "checkbox" id = "checkbox2" name = "fifteenQ" value = "15"><label for="fifteenQ"> 15</label><br>
+        <input type = "checkbox" id = "checkbox3" name = "twentyQ" value = "20"><label for="twentyQ"> 20</label><br> -->
+    </div>
+
+    <div class = "questions">
+        <h2>Let's count!</h2>
+        <div class="mathOperations"></div>
+        <form class="answerForm">
+            <label for="userAnswer">Type the result: </label><input type = "text" id="answer" name="userAnswer" value=""><input id = "submit" type = "submit" value="Submit">
+        </form>
+    </div>
+
+    <div class = "pointsCounter">
+        <h2>Your scores: </h2><p class="userScore">0</p>
+    </div>
+    <hr>
+    <div class="resultBox">
+    </div>
+    <script src="index2.js"></script>
+</body>
+</html>

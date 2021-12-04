@@ -16,8 +16,8 @@ git add --all
 git commit -m "YOUR COMMIT MESSAGE"
 git push
 ```
-
-###### ➡️ [Videos from lessons](https://www.youtube.com/playlist?list=PLsRodPBCrNtakDeiqdTdE2BBMDunYhX77) ⬅️
+)
+###### ➡️ [Videos from lessons](https://www.youtube.com/playlist?list=PLsRodPBCrNtakDeiqdTdE2BBMDunYhX77 ⬅️
 
 ## Project repos
 
