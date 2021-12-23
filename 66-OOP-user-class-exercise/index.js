@@ -66,21 +66,45 @@ class User {
         if (this.hunger >= 81 && this.hunger <= 100) {
             return 'Full'
         };
-        // switch(true) {
-        //     case this.hunger >= 0 && this.hunger <= 20:
-        //         return 'Famished';
-        //         break;
-        //     case this.hunger >= 21 && this.hunger <= 40:
-        //         return 'Starving';
-        //         break;
-        //     case this.hunger >= 41 && this.hunger <= 60:
-        //         return 'Hungry';
-        //         break;
-        //     case this.hunger >= 61 && this.hunger <= 80:
-        //         return 'Content';
-        //         break;
-        //     case this.hunger >= 81 && this.hunger <= 100:
-        //         return 'Full';
-        // }
     }
+    // * 6. Add a method {eatFood}, which takes an object as an argument
+    // * (ex. {name:string; value: number;}) and add {value} to {hunger},
+    // * and food {name} store to {foodEaten}.
+    // * Make sure you can't set {hunger} more than 100.
+    setHunger(level) {
+        if (level >= 100) {
+            level = 100;
+        }
+        this.hunger = level;
+    }
+    eatFood({name, value}) {
+        if(this.foodEaten) {
+            this.foodEaten.push(name)
+        } 
+        if((this.hunger + value) <= 100) {
+            this.hunger += value;
+        } else {
+            this.hunger = 100;
+        }
+    }
+    // * 7. Add setter {starveABit} which takes an argument(number),
+    // * and deduct from {hunger}.
+    // * If after deduction, hunger <= 0 return "You are dead".
+    // *
+    // * 8. If user is dead, make sure that on any method call you are getting
+    // * "User is dead"
+    starveABit(number) {
+        this.hunger -= number;
+        if (this.hunger <= 0) {
+            return "You are dead";
+        }
+    }
+    theEnd(hunger) {
+        this.hunger = hunger;
+        if (this.hunger <= 0) {
+            return "User is dead";
+        }
+    }
+
+
 }

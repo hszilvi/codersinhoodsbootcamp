@@ -1,3 +1,4 @@
+const fs = require('fs');
 /**
  * Exercise 1
  *
@@ -10,7 +11,14 @@
  * 1. if {filename} not provided, log an error "File name is missing"
  * 2. if path is incorrect, log an error "No such file or directory"
  */
+const createJsonFileWithContent = (data, fileName) => {
+    const result = {
+        data,
+        fileName,
+    }
 
+
+};
 /**
  * Exercise 2
  *
@@ -22,7 +30,13 @@
  * NOTES:
  * 1. if path is incorrect, log an error "No such file or directory"
  */
-
+const readJsonFile = () => {
+    if (!fs.existsSync("./data/")) {
+        fs.writeFileSync(JSON.stringify([]));
+    }
+    const fileName = fs.readFileSync("./data/");
+    return JSON.parse(fileName);
+};
 /**
  * Exercise 3
  *
