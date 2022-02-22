@@ -1,5 +1,11 @@
 import React from "react";
 import "./App.css";
+import Navigation from "./Components/Navigation/Navigation";
+import Header from "./Components/Header/Header";
+import Form from "./Components/Form/Form";
+import Content from "./Components/Content/Content"
+import Footer from "./Components/Footer/Footer"
+
 
 /**
  * Exercises:
@@ -13,8 +19,17 @@ import "./App.css";
  * NOTE: Layout for each component is up to you.
  */
 
+
 function App() {
-	return <div className="App"></div>;
+	return (
+		<div className="App">
+		<Navigation />
+		<Header />
+		<Form />
+		<Content />
+		<Footer />	
+		</div>
+		);
 }
 
 export default App;

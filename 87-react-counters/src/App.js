@@ -1,4 +1,6 @@
 import React from "react";
+import {useState} from 'react';
+import Counter from "./components/counter/Counter";
 import "./App.css";
 /**
  * 1. Create component Counter which will have:
@@ -15,7 +17,23 @@ import "./App.css";
  */
 
 function App() {
-	return <div className="App"></div>;
-}
+	const [newCounters, setNewCounters] = useState([]);
 
+	const addCounter = () => {
+		setNewCounters([...newCounters, newCounters[newCounters.length - 1] + 1 ]);
+	};
+	return (
+		<div className="App">
+		{newCounters.map((newCounter) => {
+			return (
+			<Counter 
+				newCounter={newCounter}
+			 />
+			)
+		})}
+		<button className="addButton" onClick={addCounter}>Add Counter</button>
+		
+		</div>
+	)
+}
 export default App;

@@ -17,6 +17,7 @@
 		"jest": "^25.5.4"
 	},
 	"dependencies": {
+		"express": "^4.17.2",
 		"node-fetch-polyfill": "^2.0.6"
 	}
 }

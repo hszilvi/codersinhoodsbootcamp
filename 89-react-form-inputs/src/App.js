@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import UserForm from "./Components/UserForm/UserForm";
 
+
 /**
  * Exercise 1
- *
  * 1. create a state for {inputText}
  * 2. create h1 which will represent current state
  * 3. create input with class ".first" form which will update {inputText}
@@ -13,7 +13,7 @@ import UserForm from "./Components/UserForm/UserForm";
  * 4. create input with class ".second" form which will update {inputText}
  * in state every time you modify input value.
  * Input value should represent state value.
- *
+ * 
  * Exercise 2
  * 1. Create component UserForm.
  * 2. UserForm needs to have state {user} with properties: 
@@ -32,7 +32,35 @@ import UserForm from "./Components/UserForm/UserForm";
  */
 
 const App = () => {
+    const [inputText, setInputText] = useState('')
+ 
+
+    return (
+        <div className="App">
+        <h1>Exercise 1</h1>
+        <h1>{inputText}</h1>
+        <form>
+            <input className="first"
+                id="addInputText"
+                type="text"
+                placeholder="add first input text"
+                value={inputText}
+                onChange={(e)=> setInputText(e.target.value)}
+            />
+            <input className="second"
+                id="addInputText2"
+                type="text"
+                placeholder="add second input text"
+                value={inputText}
+                onChange={(e)=> setInputText(e.target.value)}
+            />
+        </form>
+        <div className='state'>
+        </div>
+        <h1>Exercise 2 - Users data form</h1>
+        <UserForm />
+        </div>
+    )
 	
 };
-
 export default App;

@@ -1,4 +1,8 @@
-import React, {useState} from "react";
+import React, {useState } from "react";
+import "./App.css";
+import axios from 'axios';
+import Button from "./Components/Button";
+
 
 /**
  * Create a User List app
@@ -16,8 +20,57 @@ import React, {useState} from "react";
  * FEEL FREE TO STYLE YOUR APP WITH CSS
  */
 
-function App() {
+function App() {  
+    const API_URL = "https://randomuser.me/api/";
+    const [userData, setUserData] = useState([]);
+    const [urlIsLoading, setUrlIsLoading] = useState(false);
+    const [addedUser, setAddedUser] = useState(false);
+/////////////
+    const onClickHandler = () => {
+        //fetching the data
+        console.log('button is working')
+        setUrlIsLoading(true);
+        axios.get(API_URL)
+        .then((response)=> {
+            console.log(response.data.results);
+            setUserData([...response.data.results, ...userData]);
+        }).catch((error) => {
+            console.log(error);
+            setUrlIsLoading(true);
+        }).finally(() => {
+            setUrlIsLoading(false);
+            setAddedUser(true);
+        })
+    }
+    const removeHandler = (index) => {
+        const myUsers=[...userData];
+        const selectedUserIndex = userData.findIndex((user) => user.index === index);
+        console.log(selectedUserIndex);
+        myUsers.splice(selectedUserIndex, 1);
+        setUserData(myUsers);
+    };
 
+//////////////
+    return (
+        <div className="App">
+            <h1>Random User Generator</h1>
+            <Button clicked={onClickHandler}/>
+            <div className="addedUsers">
+                <ul>
+                    {userData.map((user, index) => {
+                        return (
+                            <li
+                            key={user.id.value}
+                            >
+                                <p>{`Fullname: ${user.name.first} ${user.name.last}`}</p>
+                                <button className="removeBtn" onClick={() => removeHandler()}>Remove User</button>
+                            </li>
+                        )
+                    })}  
+                </ul>       
+            </div>
+                  
+        </div>     
+    )
 }
-
 export default App;
